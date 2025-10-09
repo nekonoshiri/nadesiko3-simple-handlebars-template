@@ -1,0 +1,34 @@
+name: GitHub Actions ワークフローのチェック
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  zizmor:
+    name: zizmor を用いてワークフローをチェック
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: zizmor の実行
+        uses: zizmorcore/zizmor-action@e673c3917a1aef3c65c972347ed84ccd013ecda4 # v0.2.0
+        with:
+          # 使用する zizmor 自体のバージョンを固定した方がいいのかどうかについては
+          # https://github.com/zizmorcore/zizmor-action/issues/52 を参照。
+          # 上記の issue の様子を見つつ、一旦 latest を指定しておくことにしておく。
+          version: latest

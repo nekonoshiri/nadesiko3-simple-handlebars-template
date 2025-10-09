@@ -1,0 +1,35 @@
+name: ファイルが適切に整形されているかの確認
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: ファイルが適切に整形されているかの確認
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version-file: package.json
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: ファイルが適切に整形されているかの確認
+        run: npm run format:check

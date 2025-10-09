@@ -1,0 +1,32 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Tokyo
+    cooldown:
+      default-days: 7
+    groups:
+      nadesiko:
+        patterns:
+          - "nadesiko3"
+          - "nadesiko3-*"
+    versioning-strategy: increase # 常に package.json に記載してあるバージョンも書き換える
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Tokyo
+    cooldown:
+      default-days: 7
+    groups:
+      official-actions:
+        patterns:
+          - "actions/*"

@@ -1,0 +1,49 @@
+{
+  "name": "nadesiko3-simple-handlebars-template",
+  "version": "0.0.1",
+  "description": "プログラミング言語「なでしこ3」で Handlebars テンプレートを扱うためのシンプルな JS プラグイン。",
+  "keywords": [
+    "なでしこ",
+    "nadesiko",
+    "nadesiko3",
+    "handlebars",
+    "mustache",
+    "template"
+  ],
+  "homepage": "https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template",
+  "bugs": {
+    "url": "https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template/issues"
+  },
+  "license": "CC0-1.0",
+  "author": {
+    "name": "nekonoshiri",
+    "url": "https://github.com/nekonoshiri"
+  },
+  "files": [
+    "index.js",
+    "index.mjs"
+  ],
+  "main": "index.js",
+  "repository": "github:nekonoshiri/nadesiko3-simple-handlebars-template",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "test": "node --test --disable-warning=ExperimentalWarning test.js # Note. 'node:fs/promises' モジュールの glob 関数はまだ実験的機能のため、警告を抑えています"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.4.0",
+    "nadesiko3": "^3.7.8",
+    "prettier": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "type": "module"
+}
