@@ -23,7 +23,10 @@
     "index.mjs"
   ],
   "main": "index.mjs",
-  "repository": "github:nekonoshiri/nadesiko3-simple-handlebars-template",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template.git"
+  },
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
