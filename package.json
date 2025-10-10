@@ -20,10 +20,9 @@
     "url": "https://github.com/nekonoshiri"
   },
   "files": [
-    "index.js",
     "index.mjs"
   ],
-  "main": "index.js",
+  "main": "index.mjs",
   "repository": "github:nekonoshiri/nadesiko3-simple-handlebars-template",
   "scripts": {
     "format": "prettier --write .",
