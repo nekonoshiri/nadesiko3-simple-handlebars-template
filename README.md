@@ -1,5 +1,9 @@
 # nadesiko3-simple-handlebars-template
 
+[![GitHub License](https://img.shields.io/github/license/nekonoshiri/nadesiko3-simple-handlebars-template)](https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template/blob/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/nadesiko3-simple-handlebars-template)](https://www.npmjs.com/package/nadesiko3-simple-handlebars-template)
+[![ユニットテストの実行](https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template/actions/workflows/test.yml/badge.svg)](https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template/actions/workflows/test.yml)
+
 プログラミング言語「[なでしこ3](https://github.com/kujirahand/nadesiko3)」で Handlebars テンプレートを扱うためのシンプルな JS プラグインです。
 
 このプラグインでは Handlebars テンプレートエンジンのいくつかの機能のみを提供します。
