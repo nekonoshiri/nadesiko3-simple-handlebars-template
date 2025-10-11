@@ -1,6 +1,7 @@
 version: 2
 
 updates:
+  # npm - dependencies
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -10,12 +11,27 @@ updates:
       timezone: Asia/Tokyo
     cooldown:
       default-days: 7
+    allow:
+      - dependency-type: production
+    versioning-strategy: widen
+
+  # npm - devDependencies
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Asia/Tokyo
+    cooldown:
+      default-days: 7
+    allow:
+      - dependency-type: development
     groups:
-      nadesiko:
+      devDependencies:
         patterns:
-          - "nadesiko3"
-          - "nadesiko3-*"
-    versioning-strategy: increase # 常に package.json に記載してあるバージョンも書き換える
+          - "*"
+    versioning-strategy: increase
 
   - package-ecosystem: github-actions
     directory: /
