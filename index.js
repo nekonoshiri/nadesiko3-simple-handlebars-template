@@ -8,7 +8,7 @@ const plugin = {
       description:
         "Handlebars テンプレートを扱うためのシンプルな JS プラグイン。",
       pluginVersion: "0.0.1",
-      nakoRuntime: ["cnako"],
+      nakoRuntime: ["cnako", "wnako"],
       nakoVersion: "3.7.8",
     },
   },
