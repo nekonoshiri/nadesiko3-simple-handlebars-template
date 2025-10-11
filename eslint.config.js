@@ -4,7 +4,7 @@ import globals from "globals";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
-  globalIgnores(["bundle.js"]),
+  globalIgnores(["nadesiko3-simple-handlebars-template.js"]),
 
   {
     files: ["**/*.{js,mjs}"],

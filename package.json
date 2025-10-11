@@ -21,7 +21,7 @@
   },
   "files": [
     "index.js",
-    "bundle.js"
+    "nadesiko3-simple-handlebars-template.js"
   ],
   "main": "index.js",
   "repository": {

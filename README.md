@@ -20,7 +20,7 @@ TODO
 
 TODO
 
-※ wnako ランタイム用の `bundle.js` ファイルにはサードパーティライブラリが含まれています。[ライセンスについて](#ライセンスについて) セクションも参照してください。
+※ wnako ランタイム用の `nadesiko3-simple-handlebars-template.js` ファイルにはサードパーティライブラリが含まれています。[ライセンスについて](#ライセンスについて) セクションも参照してください。
 
 ## 提供されている関数
 
@@ -67,7 +67,7 @@ npm install
 
 ### 利用できるスクリプト
 
-- `npm run build`: cnako ランタイム用の `index.js` ファイルから、wnako ランタイム用にバンドルされた `bundle.js` ファイルを生成します。
+- `npm run build`: cnako ランタイム用の `index.js` ファイルから、wnako ランタイム用にバンドルされた `nadesiko3-simple-handlebars-template.js` ファイルを生成します。
 - `npm run format`: リポジトリ内のファイルを整形します。
 - `npm run format:check`: リポジトリ内のファイルが整形されているかどうか確認します。
 - `npm run lint`: 静的解析を行います。
@@ -79,6 +79,6 @@ npm install
 
 ※ 当ファイル (README) 内の表記と [LICENSE](LICENSE) ファイルの表記が異なる場合は [LICENSE](LICENSE) ファイルを優先します。
 
-ただし、[`bundle.js`](bundle.js) ファイルなどサードパーティライブラリが含まれているものについては、それぞれのライブラリのライセンスに従ってください。
+ただし、[`nadesiko3-simple-handlebars-template.js`](nadesiko3-simple-handlebars-template.js) ファイルなどサードパーティライブラリが含まれているものについては、それぞれのライブラリのライセンスに従ってください。
 
-※ [`bundle.js`](bundle.js) ファイルについては当該ファイル内にもコメント形式でサードパーティライブラリのライセンス表記を含めています。
+※ [`nadesiko3-simple-handlebars-template.js`](nadesiko3-simple-handlebars-template.js) ファイルについては当該ファイル内にもコメント形式でサードパーティライブラリのライセンス表記を含めています。
