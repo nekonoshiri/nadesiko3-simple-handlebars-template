@@ -20,10 +20,10 @@
     "url": "https://github.com/nekonoshiri"
   },
   "files": [
-    "index.mjs",
+    "index.js",
     "bundle.js"
   ],
-  "main": "index.mjs",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template.git"

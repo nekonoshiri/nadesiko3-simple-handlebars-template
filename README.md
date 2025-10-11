@@ -67,7 +67,7 @@ npm install
 
 ### 利用できるスクリプト
 
-- `npm run build`: cnako ランタイム用の `index.mjs` ファイルから、wnako ランタイム用にバンドルされた `bundle.js` ファイルを生成します。
+- `npm run build`: cnako ランタイム用の `index.js` ファイルから、wnako ランタイム用にバンドルされた `bundle.js` ファイルを生成します。
 - `npm run format`: リポジトリ内のファイルを整形します。
 - `npm run format:check`: リポジトリ内のファイルが整形されているかどうか確認します。
 - `npm run lint`: 静的解析を行います。

@@ -5,10 +5,10 @@ import terser from "@rollup/plugin-terser";
 import license from "rollup-plugin-license";
 import nodePolyfills from "rollup-plugin-polyfill-node";
 
-// cnako ランタイム用の index.mjs ファイルから wnako ランタイム用の bundle.mjs ファイルを作成するように設定する。
+// cnako ランタイム用の index.js ファイルから wnako ランタイム用の bundle.mjs ファイルを作成するように設定する。
 // wnako ランタイム用の bundle.js では、サードパーティの依存ライブラリも含めて全てをバンドルする。
 export default {
-  input: "index.mjs",
+  input: "index.js",
 
   output: {
     file: "bundle.js",
@@ -46,7 +46,7 @@ License: <%= dependency.license %>
     }),
   ],
 
-  // index.mjs ファイル内に（cnako ランタイム用の）export 文があるため、
+  // index.js ファイル内に（cnako ランタイム用の）export 文があるため、
   // バンドル時に「export 文があるのに output.name オプションが指定されていない」という旨の警告が発生する。
   // その警告を抑えるための設定。
   onwarn(warning, defaultHandler) {
