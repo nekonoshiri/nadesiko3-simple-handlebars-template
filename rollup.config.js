@@ -5,13 +5,13 @@ import terser from "@rollup/plugin-terser";
 import license from "rollup-plugin-license";
 import nodePolyfills from "rollup-plugin-polyfill-node";
 
-// cnako ランタイム用の index.js ファイルから wnako ランタイム用の bundle.mjs ファイルを作成するように設定する。
-// wnako ランタイム用の bundle.js では、サードパーティの依存ライブラリも含めて全てをバンドルする。
+// cnako ランタイム用の index.js ファイルから wnako ランタイム用の nadesiko3-simple-handlebars-template.js ファイルを作成するように設定する。
+// wnako ランタイム用の nadesiko3-simple-handlebars-template.js では、サードパーティの依存ライブラリも含めて全てをバンドルする。
 export default {
   input: "index.js",
 
   output: {
-    file: "bundle.js",
+    file: "nadesiko3-simple-handlebars-template.js",
     format: "iife",
   },
 
