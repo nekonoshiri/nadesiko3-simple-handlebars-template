@@ -7,7 +7,7 @@ const plugin = {
       pluginName: "nadesiko3-simple-handlebars-template",
       description:
         "Handlebars テンプレートを扱うためのシンプルな JS プラグイン。",
-      pluginVersion: "0.0.1",
+      pluginVersion: "0.0.2",
       nakoRuntime: ["cnako", "wnako"],
       nakoVersion: "3.7.8",
     },
