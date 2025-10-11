@@ -1,6 +1,6 @@
 {
   "name": "nadesiko3-simple-handlebars-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "プログラミング言語「なでしこ3」で Handlebars テンプレートを扱うためのシンプルな JS プラグイン。",
   "keywords": [
     "なでしこ",
