@@ -1,21 +1,19 @@
 version: 2
 
 updates:
-  # npm - dependencies
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-      day: monday
-      time: "09:00"
-      timezone: Asia/Tokyo
-    cooldown:
-      default-days: 7
-    allow:
-      - dependency-type: production
-    versioning-strategy: widen
-
-  # npm - devDependencies
+  # npm パッケージについては
+  #
+  # - dependencies: versioning-strategy を widen にする
+  # - devDependencies: versioning-strategy を increase にする
+  #
+  # のように戦略を分けたいところだが、Dependabot では現在そのような設定ができない。
+  #
+  # 現在の dependencies は handlebars パッケージのみで、また
+  # handlebars パッケージは非常に更新頻度が低いため、いったん
+  # devDependencies のみ更新するようにする。
+  #
+  # Note. もし dependencies 側に脆弱性が発見された場合は
+  # Dependabot alerts を設定しているためそちらで更新できる。
   - package-ecosystem: npm
     directory: /
     schedule:
