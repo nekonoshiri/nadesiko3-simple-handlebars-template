@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
 
-export default {
+const plugin = {
   meta: {
     type: "const",
     value: {
@@ -31,3 +31,13 @@ export default {
     },
   },
 };
+
+// wnako からプラグインを利用するための設定
+if (typeof navigator?.nako3?.addPluginObject === "function") {
+  navigator.nako3.addPluginObject(
+    "nadesiko3-simple-handlebars-template",
+    plugin,
+  );
+}
+
+export default plugin;
