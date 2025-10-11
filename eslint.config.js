@@ -1,9 +1,11 @@
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import js from "@eslint/js";
 import globals from "globals";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
+  globalIgnores(["bundle.js"]),
+
   {
     files: ["**/*.{js,mjs}"],
     languageOptions: {
@@ -16,6 +18,7 @@ export default defineConfig([
     },
     extends: ["js/recommended"],
   },
+
   // 最後に置くのが推奨されている (see: https://github.com/prettier/eslint-config-prettier)
   eslintConfigPrettier,
 ]);

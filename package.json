@@ -20,7 +20,8 @@
     "url": "https://github.com/nekonoshiri"
   },
   "files": [
-    "index.mjs"
+    "index.mjs",
+    "bundle.js"
   ],
   "main": "index.mjs",
   "repository": {
@@ -28,6 +29,7 @@
     "url": "git+https://github.com/nekonoshiri/nadesiko3-simple-handlebars-template.git"
   },
   "scripts": {
+    "build": "rollup --config",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
@@ -38,11 +40,17 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "nadesiko3": "^3.7.8",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "rollup": "^4.52.4",
+    "rollup-plugin-license": "^3.6.0",
+    "rollup-plugin-polyfill-node": "^0.13.0"
   },
   "engines": {
     "node": ">=22.0.0"
