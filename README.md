@@ -10,17 +10,47 @@
 
 ## 利用方法について
 
-このプラグインは cnako 及び wnako ランタイムで利用可能です。
+このプラグインは cnako ランタイム（Node.js 版）及び wnako ランタイム（ブラウザ版）で利用可能です。
 
-### cnako ランタイム
+### cnako ランタイム（Node.js 版）
 
-TODO
-
-### wnako ランタイム
+npm（または Yarn、pnpm 等）を利用してプラグインを取り込むことができます。
 
 TODO
+
+### wnako ランタイム（ブラウザ版）
+
+取り込む文または `<script>` タグを用いて jsDelivr からプラグインを取り込むことができます。
 
 ※ wnako ランタイム用の `nadesiko3-simple-handlebars-template.js` ファイルにはサードパーティライブラリが含まれています。[ライセンスについて](#ライセンスについて) セクションも参照してください。
+
+#### 取り込む文を使う場合
+
+`拡張プラグイン` 構文を用いて取り込むことができます：
+
+```nako3
+！「拡張プラグイン:simple-handlebars-template.js」を取り込む。
+変数　コンパイル済テンプレート＝『こんにちは、{{名前}}。』をテンプレートコンパイル。
+コンパイル済テンプレートを｛『名前』：『太郎』｝でテンプレート評価して表示。
+```
+
+`！「拡張プラグイン:simple-handlebars-template.js@X.Y.Z」を取り込む。` のようにバージョンを明示的に指定して取り込むことも可能です（`@X.Y.Z` の部分に取り込みたいバージョン（例えば `@1.0.0`）を指定します）。
+
+#### `<script>` タグを使う場合
+
+HTML 内で `<script>` タグを用いて取り込むことも可能です：
+
+```html
+<script src="https://nadesi.com/v3/cdn.php?v=3.7.8&f=release/wnako3.js&run"></script>
+<script src="https://cdn.jsdelivr.net/npm/nadesiko3-simple-handlebars-template/nadesiko3-simple-handlebars-template.js"></script>
+
+<script type="なでしこ">
+  変数　コンパイル済テンプレート＝『こんにちは、{{名前}}。』をテンプレートコンパイル。
+  コンパイル済テンプレートを｛『名前』：『太郎』｝でテンプレート評価して言う。
+</script>
+```
+
+`<script src="https://cdn.jsdelivr.net/npm/nadesiko3-simple-handlebars-template@X.Y.Z/nadesiko3-simple-handlebars-template.js"></script>` のようにバージョンを明示的に指定して取り込むことも可能です（`@X.Y.Z` の部分に取り込みたいバージョン（例えば `@1.0.0`）を指定します）。
 
 ## 提供されている関数
 
