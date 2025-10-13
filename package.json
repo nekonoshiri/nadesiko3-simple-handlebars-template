@@ -49,8 +49,7 @@
     "nadesiko3": "^3.7.8",
     "prettier": "^3.6.2",
     "rollup": "^4.52.4",
-    "rollup-plugin-license": "^3.6.0",
-    "rollup-plugin-polyfill-node": "^0.13.0"
+    "rollup-plugin-license": "^3.6.0"
   },
   "engines": {
     "node": ">=22.0.0"
