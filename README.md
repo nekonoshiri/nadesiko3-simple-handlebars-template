@@ -10,13 +10,7 @@
 
 ## 利用方法について
 
-このプラグインは cnako ランタイム（Node.js 版）及び wnako ランタイム（ブラウザ版）で利用可能です。
-
-### cnako ランタイム（Node.js 版）
-
-npm（または Yarn、pnpm 等）を利用してプラグインを取り込むことができます。
-
-TODO
+このプラグインは wnako ランタイム（ブラウザ版）及び cnako ランタイム（Node.js 版）で利用可能です。
 
 ### wnako ランタイム（ブラウザ版）
 
@@ -51,6 +45,24 @@ HTML 内で `<script>` タグを用いて取り込むことも可能です：
 ```
 
 `<script src="https://cdn.jsdelivr.net/npm/nadesiko3-simple-handlebars-template@X.Y.Z/nadesiko3-simple-handlebars-template.js"></script>` のようにバージョンを明示的に指定して取り込むことも可能です（`@X.Y.Z` の部分に取り込みたいバージョン（例えば `@1.0.0`）を指定します）。
+
+### cnako ランタイム（Node.js 版）
+
+npm（または Yarn、pnpm 等）を利用してプラグインを取り込むことができます。
+
+npm の使い方については省略します。
+
+例：
+
+```sh
+npm install nadesiko3-simple-handlebars-template
+```
+
+```nako3
+！「nadesiko3-simple-handlebars-template」を取り込む。
+変数　コンパイル済テンプレート＝『こんにちは、{{名前}}。』をテンプレートコンパイル。
+コンパイル済テンプレートを｛『名前』：『太郎』｝でテンプレート評価して表示。
+```
 
 ## 提供されている関数
 
