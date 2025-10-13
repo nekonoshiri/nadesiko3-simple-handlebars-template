@@ -3,7 +3,6 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 
 import license from "rollup-plugin-license";
-import nodePolyfills from "rollup-plugin-polyfill-node";
 
 // cnako ランタイム用の index.js ファイルから wnako ランタイム用の nadesiko3-simple-handlebars-template.js ファイルを作成するように設定する。
 // wnako ランタイム用の nadesiko3-simple-handlebars-template.js では、サードパーティの依存ライブラリも含めて全てをバンドルする。
@@ -16,10 +15,21 @@ export default {
   },
 
   plugins: [
-    commonjs(), // CommonJS 形式のファイルを読み込めるようにする
-    nodeResolve(), // サードパーティライブラリもバンドルする
-    terser(), // Terser を利用して minify する
-    nodePolyfills(), // Node.js モジュールの polyfill を行う
+    // CommonJS 形式のファイルを読み込めるようにする
+    commonjs(),
+
+    // サードパーティライブラリもバンドルする
+    nodeResolve({
+      // サードパーティライブラリがブラウザ向けのモジュールを提供している
+      // (例えば package.json で `browser` フィールドが指定されている)
+      // 場合はそれを使用する
+      browser: true,
+    }),
+
+    // Terser を利用して minify する
+    terser(),
+
+    // 当パッケージ及びサードパーティライブラリのライセンスを出力する
     license({
       // 出力される JavaScript ファイル内にライセンスを含める
       banner: {
@@ -41,7 +51,7 @@ License: <%= dependency.license %>
         `,
       },
       thirdParty: {
-        includeSelf: true, // 自分のライセンスも含める
+        includeSelf: true, // 当パッケージのライセンスも含める
       },
     }),
   ],
