@@ -1,1 +1,4 @@
 node_modules/
+
+# Playwright がテスト結果等を出力するディレクトリ
+test-results/

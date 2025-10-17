@@ -4,10 +4,12 @@ import terser from "@rollup/plugin-terser";
 
 import license from "rollup-plugin-license";
 
+const input = "index.js";
+
 // cnako ランタイム用の index.js ファイルから wnako ランタイム用の nadesiko3-simple-handlebars-template.js ファイルを作成するように設定する。
 // wnako ランタイム用の nadesiko3-simple-handlebars-template.js では、サードパーティの依存ライブラリも含めて全てをバンドルする。
 export default {
-  input: "index.js",
+  input,
 
   output: {
     file: "nadesiko3-simple-handlebars-template.js",
@@ -35,6 +37,8 @@ export default {
       banner: {
         commentStyle: "ignored", // ライセンスを表記したコメントが minify されないようにする
         content: `
+wnako ランタイム用のバンドル。${input} ファイルから自動生成されているため、直接編集しないでください。
+
 ================================================================================
 ライセンス一覧
 ================================================================================

@@ -33,13 +33,15 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "node --test --disable-warning=ExperimentalWarning test-runner.js # Note. 'node:fs/promises' モジュールの glob 関数はまだ実験的機能のため、警告を抑えています"
+    "test": "node --test --disable-warning=ExperimentalWarning test-runner.js # Note. 'node:fs/promises' モジュールの glob 関数はまだ実験的機能のため、警告を抑えています",
+    "test:wnako": "playwright test"
   },
   "dependencies": {
     "handlebars": "^4.7.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
+    "@playwright/test": "^1.56.0",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.2",
     "@rollup/plugin-terser": "^0.4.4",
@@ -47,6 +49,7 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "nadesiko3": "^3.7.8",
+    "playwright": "^1.56.0",
     "prettier": "^3.6.2",
     "rollup": "^4.52.4",
     "rollup-plugin-license": "^3.6.0"
