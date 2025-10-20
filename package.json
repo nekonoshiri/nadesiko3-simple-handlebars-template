@@ -33,8 +33,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "node --test --disable-warning=ExperimentalWarning test-runner.js # Note. 'node:fs/promises' モジュールの glob 関数はまだ実験的機能のため、警告を抑えています",
-    "test:wnako": "playwright test"
+    "test:cnako": "node --test --disable-warning=ExperimentalWarning test-runner.js # Note. 'node:fs/promises' モジュールの glob 関数はまだ実験的機能のため、警告を抑えています",
+    "test:wnako": "playwright test",
+    "test": "npm run test:cnako && npm run test:wnako"
   },
   "dependencies": {
     "handlebars": "^4.7.8"
