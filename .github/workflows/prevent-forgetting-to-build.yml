@@ -1,0 +1,46 @@
+name: ビルドし忘れの検出
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: ビルドし忘れの検出
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: Node.js/npm のセットアップと依存関係のインストール
+        uses: ./.github/actions/setup-npm
+
+      - name: wnako ランタイム用のバンドルの生成
+        run: npm run build
+
+      - name: wnako ランタイム用のバンドルに差分が発生しないことを確認
+        run: |
+          FILE=nadesiko3-simple-handlebars-template.js
+
+          if [ ! -f "$FILE" ]; then
+            echo "wnako ランタイム用のバンドルとして出力されるはずのファイル ($FILE) が存在しません。"
+            exit 1
+          fi
+
+          if ! git diff --quiet "$FILE"; then
+            echo "npm run build コマンドを実行したところ、出力された wnako ランタイム用のバンドル ($FILE) に差分が発生しました。"
+            echo "npm run build コマンドを実行して、$FILE ファイルをコミットしてください。"
+            exit 1
+          fi
