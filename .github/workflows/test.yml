@@ -1,4 +1,4 @@
-name: ユニットテストの実行
+name: テストの実行
 
 on:
   push:
@@ -12,8 +12,8 @@ defaults:
     shell: bash
 
 jobs:
-  test:
-    name: ユニットテストの実行
+  cnako:
+    name: cnako ランタイム用のファイルのテストの実行
     runs-on: ubuntu-latest
 
     steps:
@@ -31,5 +31,30 @@ jobs:
       - name: 依存関係のインストール
         run: npm ci
 
-      - name: ユニットテストの実行
+      - name: テストの実行
         run: npm run test:cnako
+
+  wnako:
+    name: wnako ランタイム用にバンドルされたファイルのテストの実行
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: Node.js のセットアップ
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version-file: package.json
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      - name: Playwright が使用するテスト用のブラウザをインストール
+        run: npx playwright install --with-deps
+
+      - name: テストの実行
+        run: npm run test:wnako
