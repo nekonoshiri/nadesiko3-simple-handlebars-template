@@ -1,0 +1,14 @@
+name: Node.js/npm のセットアップと依存関係のインストール
+description: Node.js 及び npm をセットアップし、依存関係をインストールします。
+
+runs:
+  using: composite
+  steps:
+    - name: Node.js のセットアップ
+      uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      with:
+        node-version-file: package.json
+
+    - name: 依存関係のインストール
+      shell: bash
+      run: npm ci
