@@ -105,6 +105,9 @@ npm install nadesiko3-simple-handlebars-template
 
 ```sh
 npm install
+
+# Playwright が使用するテスト用のブラウザをインストール
+npx playwright install
 ```
 
 ### 利用できるスクリプト
@@ -113,7 +116,9 @@ npm install
 - `npm run format`: リポジトリ内のファイルを整形します。
 - `npm run format:check`: リポジトリ内のファイルが整形されているかどうか確認します。
 - `npm run lint`: 静的解析を行います。
-- `npm test` または `npm run test`: ユニットテスト (`*.test.nako3`) を実行します。
+- `npm run test:cnako`: cnako ランタイム用のファイルのテストを実行します。
+- `npm run test:wnako`: wnako ランタイム用にバンドルされたファイルのテストを実行します。
+- `npm test` または `npm run test`: 全てのテストを実行します。
 
 ## ライセンスについて
 
