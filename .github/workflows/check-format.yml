@@ -15,6 +15,7 @@ jobs:
   test:
     name: ファイルが適切に整形されているかの確認
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: リポジトリのチェックアウト
