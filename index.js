@@ -1,5 +1,14 @@
 import Handlebars from "handlebars";
 
+/**
+ * このプラグイン自体のバージョン。
+ *
+ * Note. この行は `npm run bump` コマンド実行時に自動で置き換えられます。
+ *
+ * @see [README.md](./README.md), [bump.sh](./bump.sh)
+ */
+const PLUGIN_VERSION = "0.0.4";
+
 const plugin = {
   meta: {
     type: "const",
@@ -7,7 +16,7 @@ const plugin = {
       pluginName: "nadesiko3-simple-handlebars-template",
       description:
         "Handlebars テンプレートを扱うためのシンプルな JS プラグイン。",
-      pluginVersion: "0.0.4",
+      pluginVersion: PLUGIN_VERSION,
       nakoRuntime: ["cnako", "wnako"],
       nakoVersion: "3.7.8",
     },
