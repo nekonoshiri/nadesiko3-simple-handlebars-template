@@ -1,0 +1,48 @@
+name: npm レジストリへの公開
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  publish:
+    name: npm レジストリへの公開
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    environment:
+      name: production
+      url: https://www.npmjs.com/package/nadesiko3-simple-handlebars-template
+
+    permissions:
+      contents: read
+      # provenance の付与に必要
+      # See: https://docs.npmjs.com/generating-provenance-statements
+      id-token: write
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: Node.js/npm のセットアップと依存関係のインストール
+        uses: ./.github/actions/setup-npm
+
+      # Note. Trusted publishing を利用するために npm 11.5.1 以上が必要なので
+      # npm をアップデートする（将来的には不要になるはず）
+      - name: npm のアップデート
+        run: npm install --global npm@latest
+
+      - name: npm レジストリへ publish
+        run: npm publish --provenance
