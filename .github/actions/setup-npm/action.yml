@@ -8,6 +8,8 @@ runs:
       uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
       with:
         node-version-file: package.json
+        # npm パッケージを公開する際に使用する npm レジストリ
+        registry-url: "https://registry.npmjs.org"
 
     - name: 依存関係のインストール
       shell: bash
