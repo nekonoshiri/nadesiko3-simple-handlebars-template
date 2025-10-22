@@ -1,0 +1,54 @@
+name: リリース前バージョンチェック
+description:
+  リリースを行う前に（具体的にはタグを打った時に）、プラグインのバージョンが記載されているファイル
+  (package.json など) の更新が正しく行われていることを確認します。
+
+on:
+  push:
+    tags:
+      # Note. 正規表現ではないので注意
+      - "v[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check-version:
+    name: プラグインのバージョンが記載されているファイルの更新が正しく行われていることの確認
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # 後続の操作では認証情報を使用しないため、破棄するように設定
+          persist-credentials: false
+
+      - name: Node.js/npm のセットアップと依存関係のインストール
+        uses: ./.github/actions/setup-npm
+
+      - name: バージョン更新コマンドを実行
+        env:
+          # スクリプトインジェクション防止のために、環境変数経由でタグ名を差し込む
+          # See: https://docs.github.com/actions/reference/security/secure-use
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ ! "$TAG_NAME" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+            echo '[ERROR] タグのバージョンが不正です'
+            exit 1
+          fi
+          npm run bump -- "${TAG_NAME#v}"
+
+      - name: ファイルに差分が発生していないことを確認
+        run: |
+          if ! git diff --quiet; then
+            echo "npm run bump コマンドを実行したところ、ファイルに差分が発生しました。"
+            echo "npm run bump コマンドを使用して、プラグインのバージョンを更新してください。"
+            exit 1
+          fi
