@@ -16,6 +16,7 @@ export default {
     // @テストを定義するための関数。単に `node:test` モジュールの `test` 関数を呼び出すだけです。 // @てすとじっこうしたとき
     type: "func",
     josi: [["を"], ["の"]],
+    asyncFn: true,
     fn: function (testFunc, testName, sys) {
       // `testFunc` 引数の型は
       //
@@ -38,7 +39,7 @@ export default {
         );
       })();
 
-      test(testName, f);
+      return test(testName, f);
     },
   },
 };
