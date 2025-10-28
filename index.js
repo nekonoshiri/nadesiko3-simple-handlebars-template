@@ -7,7 +7,7 @@ import Handlebars from "handlebars";
  *
  * @see [README.md](./README.md), [bump.sh](./bump.sh)
  */
-const PLUGIN_VERSION = "0.0.6";
+const PLUGIN_VERSION = "1.0.0";
 
 const plugin = {
   meta: {
