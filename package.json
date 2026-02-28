@@ -53,7 +53,7 @@
     "nadesiko3": "^3.7.15",
     "playwright": "^1.56.0",
     "prettier": "^3.8.1",
-    "rollup": "^4.57.1",
+    "rollup": "^4.59.0",
     "rollup-plugin-license": "^3.7.0"
   },
   "engines": {
