@@ -39,10 +39,5 @@ jobs:
       - name: Node.js/npm のセットアップと依存関係のインストール
         uses: ./.github/actions/setup-npm
 
-      # Note. Trusted publishing を利用するために npm 11.5.1 以上が必要なので
-      # npm をアップデートする（将来的には不要になるはず）
-      - name: npm のアップデート
-        run: npm install --global npm@latest
-
       - name: npm レジストリへ publish
         run: npm publish --provenance
