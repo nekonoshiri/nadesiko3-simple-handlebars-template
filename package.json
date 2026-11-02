@@ -46,14 +46,14 @@
     "@playwright/test": "^1.64.1",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.2",
-    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-terser": "^1.0.2",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.13.0",
     "nadesiko3": "^3.8.9",
     "playwright": "^1.56.0",
     "prettier": "^3.9.10",
-    "rollup": "^4.64.10",
+    "rollup": "^4.65.0",
     "rollup-plugin-license": "^3.7.1"
   },
   "engines": {
